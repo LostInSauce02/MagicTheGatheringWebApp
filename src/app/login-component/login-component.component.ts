@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { GlobalComponent } from '../global/global.component';
 
 @Component({
   selector: 'app-login-component',
@@ -27,11 +28,14 @@ export class LoginComponentComponent {
   login()
   {
     
+    console.log(this.loginForm.value['email']);
     this.http.post<any>("http://localhost:5191/authenticateLogin", this.loginForm.value)
     .subscribe(res=>{
       if(res == true)
       {
         this.loginForm.reset();
+        GlobalComponent.LoginStatus = true;
+        GlobalComponent.username = this.loginForm.value['email'];
         this.router.navigate(["home"]);
       }
       else

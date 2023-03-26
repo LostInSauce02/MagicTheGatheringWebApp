@@ -9,6 +9,7 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 import { MyMaterialModule } from './material.module';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GlobalComponent } from './global/global.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegistrationComponentComponent,
     LoginComponentComponent,
     HomeComponentComponent,
+    GlobalComponent,
   ],
   imports: [
     BrowserModule,
