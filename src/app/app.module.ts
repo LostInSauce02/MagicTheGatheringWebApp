@@ -7,18 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponentComponent } from './registration-component/registration-component.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { MyMaterialModule } from './material.module';
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponentComponent,
-    LoginComponentComponent
+    LoginComponentComponent,
+    HomeComponentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MyMaterialModule
+    MyMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

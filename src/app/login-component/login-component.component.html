@@ -1,1 +1,20 @@
-<p>login-component works!</p>
+<mat-toolbar>
+    <span>LOGIN</span>
+  </mat-toolbar>
+  <mat-card class="my-card">
+     <mat-card-content>
+        <form class="my-form" [formGroup]="loginForm" (ngSubmit)="login()">
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input formControlName="email"  matInput  placeholder="Email" name="email">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input formControlName="password"  matInput  placeholder="Password" name="password">
+           </mat-form-field>
+            <mat-card-actions>
+            <button mat-raised-button color="primary">LOGIN</button>
+        </mat-card-actions>
+        </form>
+     </mat-card-content>
+  </mat-card>
