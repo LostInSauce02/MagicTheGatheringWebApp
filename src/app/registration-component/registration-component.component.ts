@@ -12,7 +12,7 @@ export class RegistrationComponentComponent {
 
   public registrationForm !: FormGroup;
   
-  constructor(private formBuilder: FormBuilder, private router: Router)
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient)
   {
     
   }
@@ -29,7 +29,19 @@ export class RegistrationComponentComponent {
 
   register()
   {
-    alert("Button Clicked");
+    console.log(this.registrationForm.value["birthdate"]); // Need to change this from Date object to String
+    this.http.post<any>("http://localhost:5191/registerUser", this.registrationForm.value)
+    .subscribe(res => {
+      if(res == true)
+      {
+        this.registrationForm.reset();
+        this.router.navigate(["login"]);
+      }
+      else
+      {
+        alert("Error! User Already Exists");
+      }
+    })
   }
   
 
