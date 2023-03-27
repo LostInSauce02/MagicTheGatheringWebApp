@@ -19,6 +19,7 @@ export class HomeComponentComponent {
     }
     else
     {
+      console.log(GlobalComponent.username);
       this.username = GlobalComponent.username; // Need to understand why this line is not working
       let output1 = document.querySelector("#email");
       if(output1 != null)

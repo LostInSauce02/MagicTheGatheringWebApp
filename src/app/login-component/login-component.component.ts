@@ -20,7 +20,7 @@ export class LoginComponentComponent {
 
   ngOnInit(): void{
     this.loginForm = this.formBuilder.group({
-      email: ["", Validators.email],
+      username: ["", Validators.email],
       password: ["", Validators.required],
     })
   }
@@ -28,14 +28,14 @@ export class LoginComponentComponent {
   login()
   {
     
-    console.log(this.loginForm.value['email']);
+    console.log(this.loginForm.value['username']);
     this.http.post<any>("http://localhost:5191/authenticateLogin", this.loginForm.value)
     .subscribe(res=>{
       if(res == true)
       {
         this.loginForm.reset();
         GlobalComponent.LoginStatus = true;
-        GlobalComponent.username = this.loginForm.value['email'];
+        GlobalComponent.username = this.loginForm.value['username'];
         this.router.navigate(["home"]);
       }
       else
