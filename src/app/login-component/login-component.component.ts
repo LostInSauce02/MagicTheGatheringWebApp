@@ -28,14 +28,13 @@ export class LoginComponentComponent {
   login()
   {
     
-    console.log(this.loginForm.value['username']);
     this.http.post<any>("http://localhost:5191/authenticateLogin", this.loginForm.value)
     .subscribe(res=>{
       if(res == true)
       {
-        this.loginForm.reset();
         GlobalComponent.LoginStatus = true;
         GlobalComponent.username = this.loginForm.value['username'];
+        this.loginForm.reset();
         this.router.navigate(["home"]);
       }
       else

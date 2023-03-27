@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponentComponent {
   
-  username: string ="";
+  username: string = "";
 
   constructor(private router: Router){}
   ngOnInit(){
@@ -19,13 +19,7 @@ export class HomeComponentComponent {
     }
     else
     {
-      console.log(GlobalComponent.username);
-      this.username = GlobalComponent.username; // Need to understand why this line is not working
-      let output1 = document.querySelector("#email");
-      if(output1 != null)
-      {
-        output1.textContent = this.username;
-      }
+      this.username = GlobalComponent.username;
     }
   }
 
