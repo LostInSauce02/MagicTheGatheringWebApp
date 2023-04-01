@@ -10,12 +10,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-imports: [MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule],
-exports: [MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule],
+imports: [MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule,MatSidenavModule],
+exports: [MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule,MatSidenavModule],
 
 })
 

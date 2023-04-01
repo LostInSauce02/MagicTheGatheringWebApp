@@ -6,4 +6,28 @@
        <a mat-button (click)="logout()">Logout</a>
     </mat-toolbar-row>
   </mat-toolbar>
-  <h1>Hello: {{this.username}}</h1>
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened>
+          <h1 class="name">{{this.username}}</h1>
+          <p class="balance">$1000.00</p>
+          <button mat-button class="menu-button" (click)="userInventory()">
+            <!--<mat-icon>Inventory</mat-icon>-->
+            <span>Profile</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-button class="menu-button" (click)="userInventory()">
+            <!--<mat-icon>Inventory</mat-icon>-->
+            <span>Inventory</span>
+          </button>
+          <button mat-button class="menu-button" (click)="userInventory()">
+            <!--<mat-icon>Inventory</mat-icon>-->
+            <span>Marketplace</span>
+          </button>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="content mat-elevation-z8">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+ 
