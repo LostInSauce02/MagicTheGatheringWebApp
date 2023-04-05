@@ -10,6 +10,7 @@ import { MyMaterialModule } from './material.module';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalComponent } from './global/global.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { GlobalComponent } from './global/global.component';
     MyMaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-registration-component',
@@ -12,7 +13,7 @@ export class RegistrationComponentComponent {
 
   public registrationForm !: FormGroup;
   
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient)
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private datepipe: DatePipe)
   {
     
   }
@@ -23,13 +24,16 @@ export class RegistrationComponentComponent {
       lastname: ["", Validators.required],
       email: ["", Validators.email],
       password: ["", Validators.required],
-      birthdate: ["", Validators.required]
+      birthdate: ["", Validators.required],
+      creation_date: [""]
     })
   }
 
   register()
   {
-    console.log(this.registrationForm.value["birthdate"]); // Need to change this from Date object to String
+    var date = new Date();
+    this.registrationForm.value["creation_date"] = this.datepipe.transform(date, 'yyyy-MM-dd');
+    this.registrationForm.value["birthdate"] = this.datepipe.transform(this.registrationForm.value["birthdate"], 'yyyy-MM-dd');
     this.http.post<any>("http://localhost:5191/registerUser", this.registrationForm.value)
     .subscribe(res => {
       if(res == true)
