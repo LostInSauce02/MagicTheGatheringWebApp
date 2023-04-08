@@ -13,6 +13,7 @@ import { GlobalComponent } from './global/global.component';
 import { UserInventoryComponent } from './user-inventory/user-inventory.component';
 import { DatePipe } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     AppComponent,
