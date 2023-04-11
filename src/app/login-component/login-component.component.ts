@@ -28,20 +28,20 @@ export class LoginComponentComponent {
   login()
   {
     
-    //this.http.post<any>("http://localhost:5191/authenticateLogin", this.loginForm.value)
-    //.subscribe(res=>{
-    //  if(res == true)
-    //  {
+    this.http.post<any>("http://localhost:5191/authenticateLogin", this.loginForm.value)
+    .subscribe(res=>{
+      if(res == true)
+      {
         GlobalComponent.LoginStatus = true;
         GlobalComponent.username = this.loginForm.value['username'];
         this.loginForm.reset();
         this.router.navigate(["home"]);
-    //  }
-    //  else
-    //  {
-    //    alert("Error! User Not Found");
-    //  }
-    //})
+      }
+      else
+      {
+        alert("Error! User Not Found");
+      }
+    })
   }
 
 }
