@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GlobalComponent } from '../global/global.component';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-home-component',
@@ -11,7 +12,7 @@ export class HomeComponentComponent {
   
   username: string = "";
 
-  constructor(private router: Router){}
+  constructor(private router: Router,private route: ActivatedRoute){}
   ngOnInit(){
     if(GlobalComponent.LoginStatus == false)
     {
@@ -28,6 +29,11 @@ export class HomeComponentComponent {
     GlobalComponent.LoginStatus = false;
     GlobalComponent.username = "";
     this.router.navigate(['/login']);
+  }
+
+  userInventory()
+  {
+    this.router.navigate(['user-inventory'], {relativeTo:this.route});
   }
     
 }

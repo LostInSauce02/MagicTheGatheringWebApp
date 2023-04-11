@@ -10,7 +10,9 @@ import { MyMaterialModule } from './material.module';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalComponent } from './global/global.component';
+import { UserInventoryComponent } from './user-inventory/user-inventory.component';
 import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { DatePipe } from '@angular/common';
     LoginComponentComponent,
     HomeComponentComponent,
     GlobalComponent,
+    UserInventoryComponent,
+    
   ],
   imports: [
     BrowserModule,
