@@ -1,5 +1,11 @@
 <article>
-  <div class="table-holder mat-elevation-z8">
+  <div class = "button-holder">
+  <button mat-button class="menu-button">
+    <span>Add Cards To Deck</span>
+  </button>
+</div>
+
+<div class="table-holder mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
     <ng-container [matColumnDef]="col" *ngFor="let col of displayedColumns">
       <th mat-header-cell *matHeaderCellDef>
@@ -9,8 +15,8 @@
         {{element[col]}}
       </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowClick(row)"></tr>
   </table>
-  </div>
+</div>
 </article>

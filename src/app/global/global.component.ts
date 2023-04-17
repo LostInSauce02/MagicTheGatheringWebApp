@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class GlobalComponent {
   public static LoginStatus: boolean = false;
   public static username: string = "";
+  public static decks = new Array();
 }
