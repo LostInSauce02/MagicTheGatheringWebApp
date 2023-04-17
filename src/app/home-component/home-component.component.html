@@ -10,17 +10,17 @@
         <mat-sidenav mode="side" opened>
           <h1 class="name">{{this.username}}</h1>
           <p class="balance">$1000.00</p>
-          <button mat-button class="menu-button" (click)="userInventory()">
-            <!--<mat-icon>Inventory</mat-icon>-->
+          <button mat-button class="menu-button" (click)="userProfile()">
             <span>Profile</span>
           </button>
           <mat-divider></mat-divider>
           <button mat-button class="menu-button" (click)="userInventory()">
-            <!--<mat-icon>Inventory</mat-icon>-->
             <span>Inventory</span>
           </button>
-          <button mat-button class="menu-button" (click)="userInventory()">
-            <!--<mat-icon>Inventory</mat-icon>-->
+          <button mat-button class="menu-button" (click)="userDecks()">
+            <span>Deck</span>
+          </button>
+          <button mat-button class="menu-button" (click)="marketplace()">
             <span>Marketplace</span>
           </button>
         </mat-sidenav>

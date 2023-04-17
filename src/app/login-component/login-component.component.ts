@@ -38,7 +38,7 @@ export class LoginComponentComponent {
         this.router.navigate(["home"]);
       }
       else
-      {
+      { 
         alert("Error! User Not Found");
       }
     })
