@@ -15,15 +15,16 @@ const USER_DATA =
 })
 export class UserInventoryComponent {
   displayedColumns: string[] = ['CID','CardCount','name','formatcommander','type','colors','manacost','maintype','set','rarity','price'];
-  dataSource: any = USER_DATA;
+  dataSource: any;
   constructor(private http: HttpClient)
   {
-    const obj = [{"email": GlobalComponent.username}];
+    const obj = {"email": GlobalComponent.username};
     console.log(obj);
     this.http.post<any>("http://localhost:5191/getUserInventory", obj)
     .subscribe(res=>{
       if(res != null)
       {
+        console.log(res);
         this.dataSource = res;
       }
       else
