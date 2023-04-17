@@ -31,9 +31,22 @@ export class HomeComponentComponent {
     this.router.navigate(['/login']);
   }
 
+  userProfile()
+  {
+    this.router.navigate(['user-profile'], {relativeTo:this.route});
+  }
   userInventory()
   {
     this.router.navigate(['user-inventory'], {relativeTo:this.route});
   }
+  userDecks()
+  {
+    this.router.navigate(['user-decks'], {relativeTo:this.route});
+  }
+  marketplace()
+  {
+    this.router.navigate(['marketplace'], {relativeTo:this.route});
+  }
+  
     
 }

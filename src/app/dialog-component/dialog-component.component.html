@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{this.cardName}}</h1>
+<div mat-dialog-actions class="button-holder">
+  <button mat-button (click)="quickSell()">Quick Sell</button>
+  <button mat-button (click)="add()">Add To Deck</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+</div>
+  
+  <div *ngIf="this.clickedAdd != 'not clicked'">
+    <div *ngFor="let deck of this.deckArray; let i = index">
+      <input name = "selection" type="radio" value="deck['DID']">Deck {{i+1}} 
+    </div>
+  </div>

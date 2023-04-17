@@ -13,11 +13,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from "@angular/material/table";
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
-imports: [MatTableModule, MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule,MatSidenavModule],
-exports: [MatTableModule, MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule,MatSidenavModule],
+imports: [MatDialogModule, MatTableModule, MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule,MatSidenavModule],
+exports: [MatDialogModule, MatTableModule, MatButtonModule,MatToolbarModule,MatNativeDateModule,MatDatepickerModule,MatIconModule,MatCheckboxModule,MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,FormsModule,ReactiveFormsModule,MatSidenavModule],
 
 })
 
