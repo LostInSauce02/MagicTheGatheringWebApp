@@ -35,7 +35,7 @@ export class LoginComponentComponent {
         GlobalComponent.LoginStatus = true;
         GlobalComponent.username = this.loginForm.value['username'];
         this.loginForm.reset();
-        this.router.navigate(["home"]);
+        this.router.navigate(["home/user-inventory"]);
       }
       else
       { 
