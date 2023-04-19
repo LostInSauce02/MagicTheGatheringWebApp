@@ -9,7 +9,7 @@
     <mat-sidenav-container>
         <mat-sidenav mode="side" opened>
           <h1 class="name">{{this.username}}</h1>
-          <p class="balance">$1000.00</p>
+          <p class="balance">${{this.userBalance}}</p>
           <button mat-button class="menu-button" (click)="userProfile()">
             <span>Profile</span>
           </button>

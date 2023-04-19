@@ -9,4 +9,6 @@ export class GlobalComponent {
   public static LoginStatus: boolean = false;
   public static username: string = "";
   public static decks = new Array();
+  public static cards = new Array();
+  public static sell = new Array();
 }

@@ -1,33 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewContainerRef} from '@angular/core';
 import { DialogComponentComponent } from '../dialog-component/dialog-component.component'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { GlobalComponent } from '../global/global.component';
-const USER_DATA = 
-  [{"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"103","CardCount":1,"name":"Geist Trappers","formatcommander":"legal","type":"Creature — Human Warrior","colors":"G","manacost":"4G","maintype":"Creature","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"112","CardCount":1,"name":"Angel of Glory's Rise","formatcommander":"legal","type":"Creature — Angel","colors":"W","manacost":"5WW","maintype":"Creature","set":"AVR","rarity":"rare","price":"50"},
-  {"CID":"113","CardCount":1,"name":"Ghoulflesh","formatcommander":"legal","type":"Enchantment — Aura","colors":"B","manacost":"B","maintype":"Enchantment","set":"AVR","rarity":"common","price":"10"},
-  {"CID":"120","CardCount":1,"name":"Gisela, Blade of Goldnight","formatcommander":"legal","type":"Legendary Creature — Angel","colors":"WR","manacost":"4RWW","maintype":"Creature","set":"AVR","rarity":"mythic","price":"100"}];
+import { HomeComponentComponent } from '../home-component/home-component.component';
+
 
 
 @Component({
@@ -39,7 +16,8 @@ export class UserInventoryComponent {
   displayedColumns: string[] = ['CID','CardCount','name','formatcommander','type','colors','manacost','maintype','set','rarity','price'];
   dataSource: any;
   dialogRef: any;
-  constructor(private http: HttpClient, public dialog: MatDialog)
+  
+  constructor(private http: HttpClient, public dialog: MatDialog, private view: ViewContainerRef)
   {
     const obj = {"email": GlobalComponent.username};
     this.http.post<any>("http://localhost:5191/getUserInventory", obj)
@@ -59,7 +37,6 @@ export class UserInventoryComponent {
     if(res != null)
       {
         GlobalComponent.decks = res;
-        console.log(GlobalComponent.decks);
       }
   })
   }
@@ -77,5 +54,54 @@ export class UserInventoryComponent {
       height: '750px',
       data: {row}
      });
-}
+  }
+  finalizeDeck(){
+    if (GlobalComponent.cards.length==0)
+    {
+      alert("No Cards To Add.");
+    }
+    else
+    {
+      this.http.post<any>("http://localhost:5191/addCardsToUserDeck", GlobalComponent.cards)
+    .subscribe(res=>{
+      if(res == true)
+      {
+        alert("Cards Successfully Added To Deck(s).")
+        GlobalComponent.cards=[];
+      }
+      else
+      { 
+        alert("Error! Cards Cannot Be Added.");
+      }
+    })
+    }
+
+    
+  }
+  
+  finalizeSell(){
+    if (GlobalComponent.sell.length==0)
+    {
+      alert("No Cards To Sell.");
+    }
+    else
+    {
+      this.http.post<any>("http://localhost:5191/quickSellCard", GlobalComponent.sell)
+      .subscribe(res=>{
+        if(res != 0)
+        {
+          alert("Cards Successfully Sold.")
+          GlobalComponent.sell=[];
+          const injector = this.view.parentInjector;
+          const parent: HomeComponentComponent = injector.get<HomeComponentComponent>(HomeComponentComponent);
+          parent.userBalance = res;
+        }
+        else
+        { 
+          alert("Error! Cards Cannot Be Sold.");
+        }
+      })
+    }
+    
+  }
 }

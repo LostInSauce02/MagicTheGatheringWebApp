@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { GlobalComponent } from '../global/global.component';
 import { Router,ActivatedRoute} from '@angular/router';
 
@@ -11,8 +12,9 @@ import { Router,ActivatedRoute} from '@angular/router';
 export class HomeComponentComponent {
   
   username: string = "";
+  userBalance: any;
 
-  constructor(private router: Router,private route: ActivatedRoute){}
+  constructor(private router: Router,private route: ActivatedRoute, private http: HttpClient){}
   ngOnInit(){
     if(GlobalComponent.LoginStatus == false)
     {
@@ -21,6 +23,11 @@ export class HomeComponentComponent {
     else
     {
       this.username = GlobalComponent.username;
+      const obj = {"email": GlobalComponent.username};
+      this.http.post<any>("http://localhost:5191/getUser", obj)
+      .subscribe(res=>{
+      this.userBalance=res[0]['user_balance'];
+    })
     }
   }
 

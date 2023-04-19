@@ -7,6 +7,7 @@
   
   <div *ngIf="this.clickedAdd != 'not clicked'">
     <div *ngFor="let deck of this.deckArray; let i = index">
-      <input name = "selection" type="radio" value="deck['DID']">Deck {{i+1}} 
+      <input id ="selection" name = "selection" type="radio" value="{{deck['DID']}}">Deck {{i+1}} 
     </div>
+    <button mat-button (click)="addToArray()">Submit</button>
   </div>

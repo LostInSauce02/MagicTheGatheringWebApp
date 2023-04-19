@@ -1,9 +1,14 @@
 <article>
   <div class = "button-holder">
-  <button mat-button class="menu-button">
+  <button mat-button class="menu-button" (click)="finalizeDeck()">
     <span>Add Cards To Deck</span>
   </button>
-</div>
+  </div>
+  <div class = "button-holder">
+  <button mat-button class="menu-button" (click)="finalizeSell()">
+    <span>Quick Sell Cards</span>
+  </button>
+  </div>
 
 <div class="table-holder mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
