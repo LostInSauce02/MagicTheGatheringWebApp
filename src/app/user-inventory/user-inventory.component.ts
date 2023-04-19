@@ -46,7 +46,6 @@ export class UserInventoryComponent {
     .subscribe(res=>{
       if(res != null)
       {
-        console.log(res);
         this.dataSource = res;
       }
       else
