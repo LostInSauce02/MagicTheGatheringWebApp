@@ -34,7 +34,7 @@ jobs:
           path: .
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'Production'
@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'MTG'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_95036B3D07004F1E993B8EE6DF0EDF37 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_61DA888A62C644E0A9A67E2ABE91F93A }}
           package: .
