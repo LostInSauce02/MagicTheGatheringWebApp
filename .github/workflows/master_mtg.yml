@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'MTG'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CC5131E15CE0463FBA260E768B0A49D2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_61DA888A62C644E0A9A67E2ABE91F93A }}
           package: .
