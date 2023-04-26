@@ -11,11 +11,15 @@ export class DialogComponentComponent {
   deckArray = GlobalComponent.decks;
   cardName: string ='';
   CID: string = '';
+  count: number;
   clickedAdd: string = 'not clicked';
+  clickedSell: string = 'not clicked';
   constructor(public dialogRef: MatDialogRef<DialogComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: any
   ) { 
     this.CID = data.row['CID'];
-    this.cardName = data.row['cardName'];
+    this.cardName = data.row['name'];
+    this.count = data.row['CardCount'];
+    
   }
 
 onNoClick() {
@@ -28,19 +32,39 @@ onYesClick() {
 
 add(){
   this.clickedAdd='clicked';
+  this.clickedSell='not clicked';
 }
+sell(){
+  this.clickedSell='clicked';
+  this.clickedAdd='not clicked';
+}
+
 quickSell(){
   const card = {
     "email": GlobalComponent.username,
     "CID": this.CID,
-    
   };
-  GlobalComponent.sell.push(card);
+
+  let cardCount = (<HTMLInputElement>document.getElementById("cardCount")).value;
+  var value: number = +cardCount;
   
-  this.dialogRef.close();
+  let newCount= this.count-value;
+
+  if (value>this.count)
+  {
+    alert("Selected Quantity Exceeds Inventory");
+  }
+  else
+  {
+    for (let i = 0; i < value ;i++)
+    {
+      GlobalComponent.sell.push(card);
+    }
+  }
+  this.dialogRef.close(newCount);
 }
 
-addToArray(){
+addToDeckArray(){
   let deck = document.getElementsByName("selection") as NodeListOf <HTMLInputElement>;
   for (var i = 0; i < deck.length;i++)
   {
@@ -53,7 +77,7 @@ addToArray(){
       };
       GlobalComponent.cards.push(card);
 
-      //console.log(this.cards);
+
       break;
     }
   }

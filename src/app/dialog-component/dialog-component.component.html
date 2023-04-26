@@ -1,13 +1,26 @@
 <h1 mat-dialog-title>{{this.cardName}}</h1>
+
 <div mat-dialog-actions class="button-holder">
-  <button mat-button (click)="quickSell()">Quick Sell</button>
+  <button mat-button (click)="sell()">Quick Sell</button>
   <button mat-button (click)="add()">Add To Deck</button>
   <button mat-button (click)="onNoClick()">Cancel</button>
 </div>
+
+<div class="dialog-content">
   
   <div *ngIf="this.clickedAdd != 'not clicked'">
-    <div *ngFor="let deck of this.deckArray; let i = index">
-      <input id ="selection" name = "selection" type="radio" value="{{deck['DID']}}">Deck {{i+1}} 
+    <div class="bullets" *ngFor="let deck of this.deckArray; let i = index">
+      <input style="height: 20px; width: 20px;" id ="selection" name = "selection" type="radio" value="{{deck['DID']}}"> Deck {{i+1}} 
     </div>
-    <button mat-button (click)="addToArray()">Submit</button>
+    <button class="submit-button" mat-button (click)="addToDeckArray()">Submit</button>
   </div>
+  
+  <div *ngIf="this.clickedSell != 'not clicked'">
+
+    Choose card quantity.
+    <input id="cardCount" matInput value="1">
+    
+    <button class="submit-button" mat-button (click)="quickSell()">Submit</button>
+  </div>
+  
+</div>
