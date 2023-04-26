@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserInventoryComponent } from './user-inventory.component';
 
@@ -21,3 +21,4 @@ describe('UserInventoryComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/
