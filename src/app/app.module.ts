@@ -16,6 +16,7 @@ import { ProfileComponentComponent } from './profile-component/profile-component
 import { DeckComponentComponent } from './deck-component/deck-component.component';
 import { MarketplaceComponentComponent } from './marketplace-component/marketplace-component.component';
 import { DialogComponentComponent } from './dialog-component/dialog-component.component';
+import { DeckCardComponentComponent } from './deck-card-component/deck-card-component.component';
 
 
 
@@ -31,6 +32,7 @@ import { DialogComponentComponent } from './dialog-component/dialog-component.co
     DeckComponentComponent,
     MarketplaceComponentComponent,
     DialogComponentComponent,
+    DeckCardComponentComponent,
 
 
     

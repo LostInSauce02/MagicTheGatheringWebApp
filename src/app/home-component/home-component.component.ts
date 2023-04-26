@@ -27,6 +27,7 @@ export class HomeComponentComponent {
       this.http.post<any>("http://localhost:5191/getUser", obj)
       .subscribe(res=>{
       this.userBalance=res[0]['user_balance'];
+      GlobalComponent.timeSinceRandomCard=res[0]['time'];
     })
     }
   }

@@ -4,9 +4,16 @@
     <span>Add Cards To Deck</span>
   </button>
   </div>
+  
   <div class = "button-holder">
   <button mat-button class="menu-button" (click)="finalizeSell()">
     <span>Quick Sell Cards</span>
+  </button>
+  </div>
+
+  <div class = "button-holder">
+  <button mat-button class="menu-button" (click)="getRandomCard()">
+    <span>Get Random Card</span>
   </button>
   </div>
 
@@ -21,7 +28,7 @@
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowClick(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let i=index;" (click)="rowClick(row,i)"></tr>
   </table>
 </div>
 </article>

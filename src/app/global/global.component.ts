@@ -12,4 +12,5 @@ export class GlobalComponent {
   public static cards = new Array();
   public static sell = new Array();
   public static buy = new Array();
+  public static timeSinceRandomCard: any;
 }
