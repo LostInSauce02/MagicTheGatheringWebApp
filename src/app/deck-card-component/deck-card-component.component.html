@@ -1,7 +1,7 @@
 <article>
     <div class = "buttons">
         <div class = "button-holder">
-            <button class="menu-button" mat-dialog-close mat-button>Exit Deck</button>
+            <button class="menu-button" (click) ="closeDeck()" mat-dialog-close mat-button>Exit Deck</button>
         </div>
         <div class = "button-holder">
             <button class="menu-button" (click)="deleteDeck()" mat-button>Delete Deck</button>

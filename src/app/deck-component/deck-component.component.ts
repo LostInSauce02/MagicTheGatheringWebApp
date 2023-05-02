@@ -14,40 +14,44 @@ export class DeckComponentComponent {
 displayedColumns: string[] = ['DID'];
 dataSource: any;
 dialogRef: any;
-didPairs: Map<number, number>;
+//didPairs: Map<number, number>;
 
   constructor(private http: HttpClient, public dialog: MatDialog, private view: ViewContainerRef)
   {
+    //this.dataSource=GlobalComponent.decks
     const obj = {"email": GlobalComponent.username};
-    this.didPairs = new Map<number, number>();
+    //this.didPairs = new Map<number, number>();
 
     this.http.post<any>("http://localhost:5191/getUserDeck", obj)
     .subscribe(res=>{
       if(res != null)
       {
-        res = res.sort((a: { DID: number; }, b: { DID: number; }) => { 
+        
+        GlobalComponent.decks = res;
+        /*res = res.sort((a: { DID: number; }, b: { DID: number; }) => { 
           if (a.DID < b.DID) {
             return -1;
           }
           return 0;
-        });
-
-        let counter = 1;
-        for(let value of res) {
-          this.didPairs.set(counter++, value.DID);
-        }
-        
-        counter = 1;
-        this.dataSource = res.map((elem: { UID: number; DID: number; }) => ({
-          'UID': elem.UID,
-          'DID': counter++
-        }));
+          
+          let counter = 1;
+          for(let value of res) {
+            this.didPairs.set(counter++, value.DID);
+          }
+          
+          counter = 1;
+          this.dataSource = res.map((elem: { UID: number; DID: number; }) => ({
+            'UID': elem.UID,
+            'DID': counter++
+          }));
+        });*/
       }
       else
       {
-        alert("ERROR! No decks for the user.");
+        //alert("ERROR! No decks for the user.");
       }
     }) 
+    this.dataSource=GlobalComponent.decks;
   }
 
   rowClick(row: any)
@@ -61,12 +65,15 @@ didPairs: Map<number, number>;
       
       width: '75%',
       height: '85%',
-      data: {row: row, didPairs: this.didPairs}
+      data: {row: row, /*didPairs: this.didPairs*/}
      }).afterClosed()
-     .subscribe(() => this.refreshParent());
+     .subscribe((res) => {
+      if (res!=null)
+      {this.dataSource=[...res];
+      }});
   }
   
-  refreshParent() {
+  /*refreshParent() {
     const obj = {"email": GlobalComponent.username};
 
     this.http.post<any>("http://localhost:5191/getUserDeck", obj)
@@ -93,10 +100,10 @@ didPairs: Map<number, number>;
       }
       else
       {
-        alert("ERROR! No decks for the user.");
+        //alert("ERROR! No decks for the user.");
       }
     })
-  }
+  }*/
 
   createDeck() {
     const obj = {"email": GlobalComponent.username};
@@ -104,7 +111,7 @@ didPairs: Map<number, number>;
     .subscribe(res=>{
       if(res != null)
       {
-        this.refreshParent(); 
+        this.dataSource=[...res];
       }
       else
       {

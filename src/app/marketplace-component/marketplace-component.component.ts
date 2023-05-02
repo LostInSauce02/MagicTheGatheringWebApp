@@ -33,6 +33,7 @@ export class MarketplaceComponentComponent {
   {
     var choice = prompt("Do you want to buy? (Y/N)")?.toString();
     console.log(typeof(choice));
+    choice=choice?.toUpperCase();
     if(choice == "Y")
     {
       console.log("HERE");

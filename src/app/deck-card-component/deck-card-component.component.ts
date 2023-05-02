@@ -16,12 +16,12 @@ export class DeckCardComponentComponent {
   displayedColumns: string[] = ['DID', 'CID', 'CardCount'];
   dataSource: any;
   DID: string = '';
-  didPairs: Map<number, number>;
+  //didPairs: Map<number, number>;
 
   constructor(private http: HttpClient, public dialogRef: MatDialogRef<DeckCardComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: any)
   {
     this.DID = data.row["DID"];
-    this.didPairs = data.didPairs;
+    //this.didPairs = data.didPairs;
     const obj = {"email": GlobalComponent.username, "DID": this.DID.toString()};
     this.http.post<any>("http://localhost:5191/getCardsInUserDeck", obj)
     .subscribe(res=>{
@@ -66,7 +66,7 @@ export class DeckCardComponentComponent {
     if(amountToRemove != "0") {
       let removeObj = new Array();
       for(let i = 0; i < parseInt(amountToRemove); i++) {
-        removeObj.push({"email": GlobalComponent.username,"cid": row["CID"].toString(), "did": this.didPairs.get(row["DID"])?.toString()});
+        removeObj.push({"email": GlobalComponent.username,"cid": row["CID"].toString(), "did": String(this.DID)});
         this.updateRow(row, i);
       }
       
@@ -81,17 +81,26 @@ export class DeckCardComponentComponent {
     }
   }
 
+  closeDeck()
+  {
+    this.dialogRef.close(null);
+  }
+
   deleteDeck() {
     let deleteCheck = prompt("Are you sure you want to delete this deck? (y/n)");
     if (deleteCheck == "Y" || deleteCheck == "y") {
-      const deleteObj = { "email": GlobalComponent.username, "did": this.didPairs.get(parseInt(this.DID))?.toString() };
+      const deleteObj = { "email": GlobalComponent.username, "did": String(this.DID) };
       this.http.post<any>("http://localhost:5191/removeUserDeck", deleteObj)
       .subscribe(res=>{
           if(!res) {
             alert("Did not work.")
           }
+          else
+          {
+            this.dialogRef.close(res);
+          }
         });
     }
-    this.dialogRef.close();
+    this.dialogRef.close(null);
   }
 }
