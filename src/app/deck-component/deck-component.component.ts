@@ -22,7 +22,7 @@ dialogRef: any;
     const obj = {"email": GlobalComponent.username};
     //this.didPairs = new Map<number, number>();
 
-    this.http.post<any>("http://localhost:5191/getUserDeck", obj)
+    this.http.post<any>("https://mtgbackend.azurewebsites.net/getUserDeck", obj)
     .subscribe(res=>{
       if(res != null)
       {
@@ -107,7 +107,7 @@ dialogRef: any;
 
   createDeck() {
     const obj = {"email": GlobalComponent.username};
-    this.http.post<any>("http://localhost:5191/createUserDeck", obj)
+    this.http.post<any>("https://mtgbackend.azurewebsites.net/createUserDeck", obj)
     .subscribe(res=>{
       if(res != null)
       {

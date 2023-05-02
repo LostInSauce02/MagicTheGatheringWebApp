@@ -28,7 +28,7 @@ export class LoginComponentComponent {
   login()
   {
     
-    this.http.post<any>("http://localhost:5191/authenticateLogin", this.loginForm.value)
+    this.http.post<any>("https://mtgbackend.azurewebsites.net/authenticateLogin", this.loginForm.value)
     .subscribe(res=>{
       if(res == true)
       {

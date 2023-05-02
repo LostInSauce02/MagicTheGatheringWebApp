@@ -16,7 +16,7 @@ export class MarketplaceComponentComponent {
   constructor(private http: HttpClient, public dialog: MatDialog, private view: ViewContainerRef)
   {
     const obj = {"email": GlobalComponent.username};
-    this.http.get<any>("http://localhost:5191/getCards")
+    this.http.get<any>("https://mtgbackend.azurewebsites.net/getCards")
     .subscribe(res=>{
       if(res != null)
       {
@@ -53,7 +53,7 @@ export class MarketplaceComponentComponent {
     }
     else
     {
-      this.http.post<any>("http://localhost:5191/buyCards", GlobalComponent.buy)
+      this.http.post<any>("https://magicthegatheringbackend.azurewebsites.net/buyCards", GlobalComponent.buy)
       .subscribe(res=>{
         if(res != 0)
         {

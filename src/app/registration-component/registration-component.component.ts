@@ -34,7 +34,7 @@ export class RegistrationComponentComponent {
     var date = new Date();
     this.registrationForm.value["creation_date"] = this.datepipe.transform(date, 'yyyy-MM-dd');
     this.registrationForm.value["birthdate"] = this.datepipe.transform(this.registrationForm.value["birthdate"], 'yyyy-MM-dd');
-    this.http.post<any>("http://localhost:5191/registerUser", this.registrationForm.value)
+    this.http.post<any>("https://mtgbackend.azurewebsites.net/registerUser", this.registrationForm.value)
     .subscribe(res => {
       if(res == true)
       {

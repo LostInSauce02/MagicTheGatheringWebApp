@@ -24,7 +24,7 @@ export class HomeComponentComponent {
     {
       this.username = GlobalComponent.username;
       const obj = {"email": GlobalComponent.username};
-      this.http.post<any>("http://localhost:5191/getUser", obj)
+      this.http.post<any>("https://mtgbackend.azurewebsites.net/getUser", obj)
       .subscribe(res=>{
       this.userBalance=res[0]['user_balance'];
       GlobalComponent.timeSinceRandomCard=res[0]['time'];

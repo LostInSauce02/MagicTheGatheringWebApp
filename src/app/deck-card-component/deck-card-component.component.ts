@@ -23,7 +23,7 @@ export class DeckCardComponentComponent {
     this.DID = data.row["DID"];
     //this.didPairs = data.didPairs;
     const obj = {"email": GlobalComponent.username, "DID": this.DID.toString()};
-    this.http.post<any>("http://localhost:5191/getCardsInUserDeck", obj)
+    this.http.post<any>("https://mtgbackend.azurewebsites.net/getCardsInUserDeck", obj)
     .subscribe(res=>{
       if(res != null)
       {
@@ -71,7 +71,7 @@ export class DeckCardComponentComponent {
       }
       
 
-      this.http.post<any>("http://localhost:5191/removeCardsFromUserDeck", removeObj)
+      this.http.post<any>("https://mtgbackend.azurewebsites.net/removeCardsFromUserDeck", removeObj)
       .subscribe(res=>{
         if(res)
         {
@@ -90,7 +90,7 @@ export class DeckCardComponentComponent {
     let deleteCheck = prompt("Are you sure you want to delete this deck? (y/n)");
     if (deleteCheck == "Y" || deleteCheck == "y") {
       const deleteObj = { "email": GlobalComponent.username, "did": String(this.DID) };
-      this.http.post<any>("http://localhost:5191/removeUserDeck", deleteObj)
+      this.http.post<any>("https://mtgbackend.azurewebsites.net/removeUserDeck", deleteObj)
       .subscribe(res=>{
           if(!res) {
             alert("Did not work.")

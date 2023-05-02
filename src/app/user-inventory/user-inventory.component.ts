@@ -21,7 +21,7 @@ export class UserInventoryComponent {
   constructor(private http: HttpClient, public dialog: MatDialog, private view: ViewContainerRef)
   {
     const obj = {"email": GlobalComponent.username};
-    this.http.post<any>("http://localhost:5191/getUserInventory", obj)
+    this.http.post<any>("https://mtgbackend.azurewebsites.net/getUserInventory", obj)
     .subscribe(res=>{
       if(res != null)
       {
@@ -33,7 +33,7 @@ export class UserInventoryComponent {
       }
   }) 
 
-  this.http.post<any>("http://localhost:5191/getUserDeck", obj)
+  this.http.post<any>("https://mtgbackend.azurewebsites.net/getUserDeck", obj)
   .subscribe(res=>{
     if(res != null)
       {
@@ -108,7 +108,7 @@ export class UserInventoryComponent {
     }
     else
     {
-      this.http.post<any>("http://localhost:5191/addCardsToUserDeck", GlobalComponent.cards)
+      this.http.post<any>("https://mtgbackend.azurewebsites.net/addCardsToUserDeck", GlobalComponent.cards)
     .subscribe(res=>{
       if(res == true)
       {
@@ -133,7 +133,7 @@ export class UserInventoryComponent {
     else
     {
       
-      this.http.post<any>("http://localhost:5191/quickSellCard", GlobalComponent.sell)
+      this.http.post<any>("https://mtgbackend.azurewebsites.net/quickSellCard", GlobalComponent.sell)
       .subscribe(res=>{
         if(res != 0)
         {
@@ -164,7 +164,7 @@ export class UserInventoryComponent {
     if (GlobalComponent.timeSinceRandomCard=="                                   " || (CurrentTime-Number(GlobalComponent.timeSinceRandomCard)>=60))
     { 
       const obj = {"email": GlobalComponent.username, "time": String(CurrentTime)};
-      this.http.post<any>("http://localhost:5191/getRandomCard",obj)
+      this.http.post<any>("https://mtgbackend.azurewebsites.net/getRandomCard",obj)
       .subscribe(res=>{
         if(res!=null)
         {
