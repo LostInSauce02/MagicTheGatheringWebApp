@@ -53,7 +53,7 @@ export class MarketplaceComponentComponent {
     }
     else
     {
-      this.http.post<any>("https://magicthegatheringbackend.azurewebsites.net/buyCards", GlobalComponent.buy)
+      this.http.post<any>("https://mtgbackend.azurewebsites.net/buyCards", GlobalComponent.buy)
       .subscribe(res=>{
         if(res != 0)
         {
