@@ -3,11 +3,16 @@
       <!-- <span>HOME</span> -->
        <span>MTG</span>
        <span class="spacer"></span>
+       <button mat-button class="menu-button" (click)="toggleSideNav()">
+        Toggle Side Nav
+      </button>
+      <span class="spacer"></span>
        <a mat-button (click)="logout()">Logout</a>
     </mat-toolbar-row>
   </mat-toolbar>
+    
     <mat-sidenav-container>
-        <mat-sidenav mode="side" opened>
+        <mat-sidenav *ngIf="this.sideNavVisible == true" mode="side" opened>
           <h1 class="name">{{this.username}}</h1>
           <p class="balance">${{this.userBalance}}</p>
           <button mat-button class="menu-button" (click)="userProfile()">
