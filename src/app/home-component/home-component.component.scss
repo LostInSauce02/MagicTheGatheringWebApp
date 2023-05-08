@@ -4,7 +4,7 @@
 
 mat-sidenav {
     margin: 16px;
-    width: 200px;
+    width: -webkit-fit-content;
     border-right: none;
     background: #3f51b5;
     color: white;
@@ -16,14 +16,16 @@ mat-sidenav {
 .content {
     
     height: -webkit-fit-content;
+    width: -webkit-fit-content;
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;
 
     display: flex;
     justify-content: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 25px;
+    //padding-top: 25px;
+    //padding-bottom: 25px;
     //align-items: center;
 
     font-size: 2rem;

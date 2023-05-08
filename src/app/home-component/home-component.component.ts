@@ -13,6 +13,7 @@ export class HomeComponentComponent {
   
   username: string = "";
   userBalance: any;
+  sideNavVisible: boolean = true;
 
   constructor(private router: Router,private route: ActivatedRoute, private http: HttpClient){}
   ngOnInit(){
@@ -58,6 +59,17 @@ export class HomeComponentComponent {
   marketplace()
   {
     this.router.navigate(['marketplace'], {relativeTo:this.route});
+  }
+  toggleSideNav()
+  {
+    if (this.sideNavVisible)
+    {
+      this.sideNavVisible=false;
+    }
+    else
+    {
+      this.sideNavVisible=true;
+    }
   }
   
     
