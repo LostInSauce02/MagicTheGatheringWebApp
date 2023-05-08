@@ -36,6 +36,10 @@ export class HomeComponentComponent {
   {
     GlobalComponent.LoginStatus = false;
     GlobalComponent.username = "";
+    GlobalComponent.decks = [];
+    GlobalComponent.cards = [];
+    GlobalComponent.sell = [];
+    GlobalComponent.buy = [];
     this.router.navigate(['/login']);
   }
 
