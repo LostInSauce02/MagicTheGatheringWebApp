@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { GlobalComponent } from './global/global.component';
 import { UserInventoryComponent } from './user-inventory/user-inventory.component';
 import { DatePipe } from '@angular/common';
-import { ProfileComponentComponent } from './profile-component/profile-component.component';
 import { DeckComponentComponent } from './deck-component/deck-component.component';
 import { MarketplaceComponentComponent } from './marketplace-component/marketplace-component.component';
 import { DialogComponentComponent } from './dialog-component/dialog-component.component';
@@ -28,7 +27,6 @@ import { DeckCardComponentComponent } from './deck-card-component/deck-card-comp
     HomeComponentComponent,
     GlobalComponent,
     UserInventoryComponent,
-    ProfileComponentComponent,
     DeckComponentComponent,
     MarketplaceComponentComponent,
     DialogComponentComponent,

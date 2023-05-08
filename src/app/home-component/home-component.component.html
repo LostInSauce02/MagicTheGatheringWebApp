@@ -15,9 +15,6 @@
         <mat-sidenav *ngIf="this.sideNavVisible == true" mode="side" opened>
           <h1 class="name">{{this.username}}</h1>
           <p class="balance">${{this.userBalance}}</p>
-          <button mat-button class="menu-button" (click)="userProfile()">
-            <span>Profile</span>
-          </button>
           <mat-divider></mat-divider>
           <button mat-button class="menu-button" (click)="userInventory()">
             <span>Inventory</span>

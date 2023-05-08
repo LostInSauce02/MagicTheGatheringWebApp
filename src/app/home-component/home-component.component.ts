@@ -44,10 +44,7 @@ export class HomeComponentComponent {
     this.router.navigate(['/login']);
   }
 
-  userProfile()
-  {
-    this.router.navigate(['user-profile'], {relativeTo:this.route});
-  }
+  
   userInventory()
   {
     this.router.navigate(['user-inventory'], {relativeTo:this.route});
